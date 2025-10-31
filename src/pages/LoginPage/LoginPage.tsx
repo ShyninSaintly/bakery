@@ -6,7 +6,7 @@ export const LoginPage = () => {
             <TextField name='username' type='text' isRequired>
                 <Label>Логин</Label>
                 <Input type='text' placeholder='Введите логин'  />
-            </TextField>ы
+            </TextField>
             <TextField name='password' type='password' isRequired>
                 <Label>Пароль</Label>
                 <Input type='password' placeholder='Введите пароль'/>
