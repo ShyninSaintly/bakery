@@ -4,14 +4,14 @@ import {type FormEvent, useState} from "react";
 export const LoginPage = () => {
     const [login, setLogin] = useState('');
     const [password,setPassword]=useState('');
-    const HandleSubmit=async (e:FormEvent) => {
+    const handleSubmit=async (e:FormEvent) => {
         e.preventDefault();
         try{
             const response=await fetch('http://localhost:3000/users');
             if(!response.ok){
                 console.error(`Ошибка получения пользователей:${response.status}`);
             }
-            const users=await response.json();
+            const users = await response.json();
             const currUser=users.find((u)=> u.userName === login);
             if(currUser && currUser.password === password){
                 const authUser = {
@@ -26,17 +26,19 @@ export const LoginPage = () => {
         }
     }
     return (
-        <Form className={classes.LoginPage}>
+        <div className={classes.LoginPage}>
+        <Form className={classes.LoginPageForm}>
             <TextField name='username' type='text' isRequired>
-                <Label>Логин</Label>
+                <Label className={classes.LoginPageLabel}>Логин</Label>
                 <Input type='text' placeholder='Введите логин' onChange={(e)=>setLogin(e.target.value)} />
             </TextField>
             <TextField name='password' type='password' isRequired>
-                <Label>Пароль</Label>
+                <Label className={classes.LoginPageLabel}>Пароль</Label>
                 <Input type='password' placeholder='Введите пароль' onChange={(e)=>setPassword(e.target.value)} />
             </TextField>
-            <Button type='button'>Регистрация</Button>
-            <Button type='submit' onClick={HandleSubmit}>Войти</Button>
+            <Button type='button' className={classes.LoginPageBtn}>Регистрация</Button>
+            <Button type='submit' onClick={handleSubmit} className={classes.LoginPageBtn}>Войти</Button>
         </Form>
+        </div>
     );
 };
