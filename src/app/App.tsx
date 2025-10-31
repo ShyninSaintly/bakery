@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom'
 import {LoginPage} from "../pages/LoginPage/LoginPage.tsx";
 import {MainPage} from "../pages/MainPage/MainPage.tsx";
+import 'leaflet/dist/leaflet.css';
 function App() {
   return (
       <Router>
