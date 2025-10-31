@@ -1,4 +1,3 @@
-// @ts-ignore
 import {Button, Form, Input, Label, TextField} from "react-aria-components";
 
 export const LoginPage = () => {
@@ -7,7 +6,7 @@ export const LoginPage = () => {
             <TextField name='username' type='text' isRequired>
                 <Label>Логин</Label>
                 <Input type='text' placeholder='Введите логин'  />
-            </TextField>
+            </TextField>ы
             <TextField name='password' type='password' isRequired>
                 <Label>Пароль</Label>
                 <Input type='password' placeholder='Введите пароль'/>

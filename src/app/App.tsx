@@ -2,24 +2,12 @@ import {BrowserRouter as Router, Routes, Route, Navigate} from 'react-router-dom
 import {LoginPage} from "../pages/LoginPage/LoginPage.tsx";
 import {MainPage} from "../pages/MainPage/MainPage.tsx";
 function App() {
-  // const currentUser = sessionStorage.getItem('currentUser');
   return (
       <Router>
         <Routes>
           <Route path="/login" element={<LoginPage/>}/>
-            <Route path='/main' element={<MainPage/>}/>
-              {/*{currentUser && (*/}
-              {/*    <>*/}
-              {/*      <Route path="/" element={<MainPage/>}/>*/}
-              {/*      <Route path="/desk/:deskId" element={<DeskPage/>}/>*/}
-              {/*      <Route path="/map" element={<MapLayout/>}/>*/}
-              {/*      <Route path='/createDesk' element={<CreateDesk/>}/>*/}
-              {/*      <Route path='/createTask' element={<CreateTask/>}/>*/}
-              {/*      <Route path='/edit' element={<Edit/>}/>*/}
-              {/*      <Route path='/edit/:deskId' element={<Edit/>}/>*/}
-              {/*    </>*/}
-              {/*)}*/}
-              {/*<Route path="*" element={<Navigate to="/login" replace />} />*/}
+          <Route path='/main' element={<MainPage/>}/>
+          <Route path="*" element={<Navigate to="/login" replace />} />
         </Routes>
       </Router>
   );
