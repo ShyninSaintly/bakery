@@ -12,34 +12,31 @@ export const LoginPage = () => {
                 console.error(`Ошибка получения пользователей:${response.status}`);
             }
             const users=await response.json();
-            const currUser=users.find((u)=>u.userName===login);
-            if(currUser && currUser.password===password){
-                const authUser={
+            const currUser=users.find((u)=> u.userName === login);
+            if(currUser && currUser.password === password){
+                const authUser = {
                     id:currUser.id,
                     userName:currUser.userName,
                     password:currUser.password,
                 }
-                    localStorage.setItem('AuthorizedUser',JSON.stringify(currUser))
+                    localStorage.setItem('AuthorizedUser',JSON.stringify(authUser))
             }
         }catch{
-
-        }
-        finally{
-
+            console.error('Неверный логин илил пароль');
         }
     }
     return (
-        <Form className={classes.LoginPage} onSubmit={HandleSubmit}>
+        <Form className={classes.LoginPage}>
             <TextField name='username' type='text' isRequired>
                 <Label>Логин</Label>
-                <Input type='text' placeholder='Введите логин'  />
+                <Input type='text' placeholder='Введите логин' onChange={(e)=>setLogin(e.target.value)} />
             </TextField>
             <TextField name='password' type='password' isRequired>
                 <Label>Пароль</Label>
-                <Input type='password' placeholder='Введите пароль'/>
+                <Input type='password' placeholder='Введите пароль' onChange={(e)=>setPassword(e.target.value)} />
             </TextField>
             <Button type='button'>Регистрация</Button>
-            <Button type='submit'>Войти</Button>
+            <Button type='submit' onClick={HandleSubmit}>Войти</Button>
         </Form>
     );
 };
