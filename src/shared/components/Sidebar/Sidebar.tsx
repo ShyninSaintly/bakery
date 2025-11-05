@@ -1,4 +1,4 @@
-import {Item, Menu, MenuTrigger, ActionButton, Image} from "@adobe/react-spectrum";
+import {Item, Menu, MenuTrigger, ActionButton, Image, Icon} from "@adobe/react-spectrum";
 import {Button} from "react-aria-components";
 import {useState} from "react";
 
@@ -11,7 +11,7 @@ export const Sidebar = () => {
     return (
         <>
                 <Button onClick={handleClick} className={open? "active":""} >
-                    {open?(<Image src={}/>):()}
+                    {!open?(<Image src={'/'}/>):(<Icon src='.../'/>)}
                 </Button>
                 {open?(
                 <Menu>
