@@ -1,7 +1,8 @@
 {
   "users": [
-    {"id": 11,"userName":"Test","password": "test" },
-    {"id": 22,"userName":"Admin","password": "testAdmn" }
+    {"id": 11,"userName":"Test","password": "test","role": "user" },
+    {"id": 22,"userName":"Admin","password": "testAdmn","role": "Admin" },
+    {"id": 33,"userName": "StoreOwner","password": "testStore","role": "owner"}
   ],
   "posts": [
     { "id": 1, "title": "json-server", "author": "typicode" }

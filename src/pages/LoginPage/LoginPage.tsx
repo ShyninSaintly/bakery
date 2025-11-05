@@ -1,9 +1,11 @@
-import {Button, Form, Input, Label, TextField} from "react-aria-components";
+import {Button, FieldError, Form, Input, Label, TextField} from "react-aria-components";
 import classes from './LoginPage.module.scss'
 import {type FormEvent, useState} from "react";
+import {useNavigate} from "react-router";
 export const LoginPage = () => {
     const [login, setLogin] = useState('');
     const [password,setPassword]=useState('');
+    const navigate = useNavigate();
     const handleSubmit=async (e:FormEvent) => {
         e.preventDefault();
         try{
@@ -20,6 +22,7 @@ export const LoginPage = () => {
                     password:currUser.password,
                 }
                     localStorage.setItem('AuthorizedUser',JSON.stringify(authUser))
+                    navigate('/main');
             }
         }catch{
             console.error('Неверный логин илил пароль');
@@ -27,18 +30,28 @@ export const LoginPage = () => {
     }
     return (
         <div className={classes.LoginPage}>
-        <Form className={classes.LoginPageForm}>
-            <TextField name='username' type='text' isRequired>
-                <Label className={classes.LoginPageLabel}>Логин</Label>
-                <Input type='text' placeholder='Введите логин' onChange={(e)=>setLogin(e.target.value)} />
-            </TextField>
-            <TextField name='password' type='password' isRequired>
-                <Label className={classes.LoginPageLabel}>Пароль</Label>
-                <Input type='password' placeholder='Введите пароль' onChange={(e)=>setPassword(e.target.value)} />
-            </TextField>
-            <Button type='button' className={classes.LoginPageBtn}>Регистрация</Button>
-            <Button type='submit' onClick={handleSubmit} className={classes.LoginPageBtn}>Войти</Button>
-        </Form>
+            <Form className={classes.LoginPageForm}>
+                <div className={classes.LoginPageHead}></div>
+                <div className={classes.FormContentContainer}>
+                    <TextField name='username' type='text' isRequired>
+                        <Label className={classes.LoginPageLabel}>Логин</Label>
+                        <Input className={classes.LoginPageInput} type='text' placeholder='Введите логин'
+                               onChange={(e) => setLogin(e.target.value)}/>
+                        <FieldError className={classes.LoginPageErrorMessage}>Заполните поле логин корректно</FieldError>
+                    </TextField>
+                    <TextField name='password' type='password' isRequired>
+                        <Label className={classes.LoginPageLabel}>Пароль</Label>
+                        <Input className={classes.LoginPageInput} type='password' placeholder='Введите пароль'
+                               onChange={(e) => setPassword(e.target.value)}/>
+                        <FieldError className={classes.LoginPageErrorMessage}>Заполните поле пароля корректно</FieldError>
+                    </TextField>
+                    <div className={classes.LoginPageButtonContainer}>
+                        <Button type='button' className={classes.LoginPageBtn}>Регистрация</Button>
+                        <Button type='submit' onClick={handleSubmit} className={classes.LoginPageBtn}>Войти</Button>
+                    </div>
+                </div>
+                <div className={classes.LoginPageButtom}></div>
+            </Form>
         </div>
     );
 };
