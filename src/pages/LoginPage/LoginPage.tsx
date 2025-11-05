@@ -4,7 +4,7 @@ import {type FormEvent, useState} from "react";
 import {useNavigate} from "react-router";
 export const LoginPage = () => {
     const [login, setLogin] = useState('');
-    const [password,setPassword]=useState('');
+    const [password,setPassword] = useState('');
     const navigate = useNavigate();
     const handleSubmit=async (e:FormEvent) => {
         e.preventDefault();

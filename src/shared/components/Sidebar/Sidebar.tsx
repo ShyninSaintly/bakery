@@ -1,37 +1,26 @@
-import {Grid, Item, Menu, Provider, View} from "@adobe/react-spectrum";
-import {Link} from "react-router";
-
+import {Item, Menu, MenuTrigger, ActionButton, Image} from "@adobe/react-spectrum";
+import {Button} from "react-aria-components";
+import {useState} from "react";
 
 export const Sidebar = () => {
+    const [open, setOpen] = useState(false);
+    const handleClick = (e)=>{
+        e.preventDefault();
+        setOpen(!open);
+    }
     return (
-        <Provider>
-            <Grid areas={['header header', 'sidebar content', 'footer footer']}
-                columns={['200px','1fr']}
-                rows={['auto','1fr','auto']}
-                height='100vh'>
-                <View gridArea='header'>HederSidebar</View>
-                <View gridArea='sidebar'>
-                    <Menu onAction={(key)=>console.log(key)}>
-                        <Item>
-                            <Link href={"#"}>
-                                <Text>Домоэ</Text>
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link href="#">
-                                <Text>Домоэ</Text>
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link href="#">
-                                <Text>Домоэ</Text>
-                            </Link>
-                        </Item>
-                    </Menu>
-                </View>
-                <View gridArea='content'>Main Content</View>
-                <View gridArea='footer'>Footer Content</View>
-            </Grid>
-        </Provider>
+        <>
+                <Button onClick={handleClick} className={open? "active":""} >
+                    {open?(<Image src={}/>):()}
+                </Button>
+                {open?(
+                <Menu>
+                    <Item key="cut" href={'#'}>1</Item>
+                    <Item key="copy" href={'#'}>2</Item>
+                    <Item key="paste" href={'#'}>3</Item>
+                    <Item key="replace" href={'#'}>4</Item>
+                </Menu>
+                ):<></>}
+        </>
     );
 };
