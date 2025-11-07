@@ -5,11 +5,10 @@ export const MapLayout= ()=> {
     return (
         <>
             <MapContainer
-                center= {position}
+                center={position}
                 zoom={13}
                 zoomControl={false}
                 scrollWheelZoom={false}
-
                 style={{ height: '100vh', width: '100%', zIndex: -1 }}
             >
             <TileLayer

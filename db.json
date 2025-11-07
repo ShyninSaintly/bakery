@@ -1,7 +1,7 @@
 {
   "users": [
     {"id": 11,"userName":"Test","password": "test","role": "user" },
-    {"id": 22,"userName":"Admin","password": "testAdmn","role": "Admin" },
+    {"id": 22,"userName":"Admin","password": "testAdmn","role": "admin" },
     {"id": 33,"userName": "StoreOwner","password": "testStore","role": "owner"}
   ],
   "posts": [

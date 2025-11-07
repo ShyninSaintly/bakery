@@ -2,6 +2,15 @@ import {Button, FieldError, Form, Input, Label, TextField} from "react-aria-comp
 import classes from './LoginPage.module.scss'
 import {type FormEvent, useState} from "react";
 import {useNavigate} from "react-router";
+
+type Roles = 'user'|'admin'|'owner';
+
+interface Element{
+    id:number;
+    userName: string;
+    password: string;
+    role:Roles;
+}
 export const LoginPage = () => {
     const [login, setLogin] = useState('');
     const [password,setPassword] = useState('');
@@ -14,7 +23,7 @@ export const LoginPage = () => {
                 console.error(`Ошибка получения пользователей:${response.status}`);
             }
             const users = await response.json();
-            const currUser=users.find((u)=> u.userName === login);
+            const currUser=users.find((u:Element)=> u.userName === login);
             if(currUser && currUser.password === password){
                 const authUser = {
                     id:currUser.id,
