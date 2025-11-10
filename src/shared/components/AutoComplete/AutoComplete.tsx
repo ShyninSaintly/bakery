@@ -1,36 +1,38 @@
 import {Autocomplete, Button, Input, Label, Menu, MenuItem, SearchField, useFilter} from 'react-aria-components';
 import {useState} from "react";
-// interface searchValues{
-//  id:string;
-//  value:string;
-// }
-// export const AutoComplete = (search?:searchValues) => {
-    export const AutoComplete= ()=>{
+
+    export const AutoComplete= () =>{
         const {contains}=useFilter({sensitivity: 'base'});
         const [value, setValue] = useState<string>('');
+        const [open,setOpen]=useState(false);
+        const handleClick=()=>{
+            setOpen(!open);
+            setValue('');
+        }
+        const items=[
+            {id:1,value:'первое'},
+            {id:2,value:'втрое'},
+            {id:3,value:'третье'},
+            {id:4,value:'четвертое'},
+            {id:5,value:'пятое'},
+            {id:6,value:'шестое'},
+            {id:7,value:'седьмое'},
+            {id:8,value:'восьмое'}];
     return (
         <div className="autocomplete">
             <Autocomplete filter={contains}>
                 <SearchField>
                     <Label>Поиск</Label>
                     <Input placeholder="Ввведие..." value={value} onChange={e => setValue(e.target.value)} />
-                    <Button>✕</Button>
+                    <Button onClick={handleClick}>✕</Button>
                 </SearchField>
-                {value?(<Menu>
-                    <MenuItem>первое</MenuItem>
-                    <MenuItem>втрое</MenuItem>
-                    <MenuItem>третье</MenuItem>
-                    <MenuItem>четвертое</MenuItem>
-                    <MenuItem>пятое</MenuItem>
-                    <MenuItem>шестое</MenuItem>
-                    <MenuItem>седьмое</MenuItem>
-                    <MenuItem>восьмое</MenuItem>
-                    <MenuItem>девятое</MenuItem>
-                    <MenuItem>десятое</MenuItem>
-                    <MenuItem>одиннадцатое</MenuItem>
-                    <MenuItem>двеннадцатое</MenuItem>
-                    <MenuItem>тринадцатое</MenuItem>
-                    <MenuItem>четырнадцатое</MenuItem>
+                {value || open ?(
+                <Menu>
+                    {items.map((item)=>{
+                        return(
+                        <MenuItem key={item.id}>{item.value}</MenuItem>
+                        )
+                    })}
                 </Menu>):<></>}
             </Autocomplete>
         </div>

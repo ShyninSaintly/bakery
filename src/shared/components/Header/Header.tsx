@@ -5,10 +5,10 @@ export const Header = () => {
     return (
         <div className={classes.Header}>
             <Menu className={classes.HeaderMenuItems}>
-                <MenuItem>Главная</MenuItem>
-                <MenuItem>Булочные</MenuItem>
-                <MenuItem>Профиль</MenuItem>
-                <MenuItem>хзче</MenuItem>
+                <MenuItem className={classes.HeaderMenuItem} >Главная</MenuItem>
+                <MenuItem className={classes.HeaderMenuItem}>Булочные</MenuItem>
+                <MenuItem className={classes.HeaderMenuItem}>Профиль</MenuItem>
+                <MenuItem className={classes.HeaderMenuItem}>хзче</MenuItem>
             </Menu>
             <AutoComplete/>
         </div>
