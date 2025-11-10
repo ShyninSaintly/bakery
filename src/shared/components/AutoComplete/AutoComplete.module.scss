@@ -1,0 +1,15 @@
+.AutoComplete{
+  display: inline-flex;
+  &Input{
+    max-width: 100px;
+  }
+  &Button{
+    background-color: #fd8c60;
+    border-radius:2px;
+    border: none;
+    height: 21px;
+  }
+  &Menu{
+    border: 1px #fd8c60;
+  }
+}

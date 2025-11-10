@@ -9,8 +9,10 @@ export const Header = () => {
                 <MenuItem className={classes.HeaderMenuItem}>Булочные</MenuItem>
                 <MenuItem className={classes.HeaderMenuItem}>Профиль</MenuItem>
                 <MenuItem className={classes.HeaderMenuItem}>хзче</MenuItem>
+                <MenuItem className={classes.HeaderMenuItem}>
+                    <AutoComplete />
+                </MenuItem>
             </Menu>
-            <AutoComplete />
         </div>
     );
 };
