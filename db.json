@@ -4,11 +4,13 @@
     {"id": 22,"userName":"Admin","password": "testAdmn","role": "admin" },
     {"id": 33,"userName": "StoreOwner","password": "testStore","role": "owner"}
   ],
-  "posts": [
-    { "id": 1, "title": "json-server", "author": "typicode" }
+  "bakeryShop": [
+    { "id": "bakeryShop1", "title": "Булки у бабаульки" },
+    { "id": "bakeryShop2", "title": "Пекарня" }
   ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 }
+  "bakery": [
+    {"id": "bakeryName1","title": "треугольник","shopAssignedTo":"bakeryShop1" },
+    {"id": "bakeryName2","title": "треугольник","shopAssignedTo":"bakeryShop2" }
   ],
   "profile": { "name": "typicode" }
 }

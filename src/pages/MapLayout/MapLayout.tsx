@@ -1,7 +1,7 @@
-import {MapContainer, Marker, Popup, TileLayer} from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
-export const MapLayout= ()=> {
-    const position= [55.7, 52.33];
+export const MapLayout = () => {
+    const position = [55.7, 52.33];
     return (
         <>
             <MapContainer
@@ -11,15 +11,11 @@ export const MapLayout= ()=> {
                 scrollWheelZoom={false}
                 style={{ height: '100vh', width: '100%', zIndex: -1 }}
             >
-            <TileLayer
-               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
+                <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
                 <Marker position={position}>
-                    <Popup>
-                     Здесь типо пекарня йоу
-                    </Popup>
+                    <Popup>Здесь типо пекарня йоу</Popup>
                 </Marker>
             </MapContainer>
         </>
     );
-}
+};
